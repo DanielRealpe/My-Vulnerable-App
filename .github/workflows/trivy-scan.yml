@@ -7,8 +7,8 @@ on:
   pull_request:
 
 jobs:
-  build:
-    name: Build
+  trivy:
+    name: Trivy
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
