@@ -18,3 +18,5 @@ jobs:
         scan-type: 'fs'
         scan-ref: '.'
         trivy-config: trivy.yaml
+        exit-code: '1'
+        format: 'table'
