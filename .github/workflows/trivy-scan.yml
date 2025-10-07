@@ -18,7 +18,7 @@ jobs:
         scan-type: 'fs'
         scan-ref: '.'
         trivy-config: trivy.yaml
-        exit-code: '0'
+        exit-code: '1'
         format: 'table'
 
     - name: Run Trivy misconfiguration scanner
@@ -26,5 +26,5 @@ jobs:
       with:
         scan-type: 'config'
         scan-ref: '.'
-        exit-code: '0'
+        exit-code: '1'
         format: 'table'
