@@ -1,5 +1,9 @@
 FROM python:3.12-slim
 
+# Copia os arquivos de requirements e instala dependências
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
 # Create a non-root user and group
 RUN groupadd -r appuser && useradd -r -g appuser appuser
 
@@ -12,9 +16,6 @@ RUN chown appuser:appuser /app
 # Switch to the non-root user
 USER appuser
 
-# Copia os arquivos de requirements e instala dependências
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
 
 # Copia o restante da aplicação
 COPY . .
