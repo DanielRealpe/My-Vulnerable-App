@@ -21,11 +21,11 @@ USER appuser
 COPY . .
 
 # Expõe a porta padrão do Uvicorn
-EXPOSE 8000
+EXPOSE 12345
 
 # Comando para rodar a aplicação
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "12345"]
 
 # Define the health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-  CMD curl --fail http://localhost:5000/health || exit 1
+  CMD curl --fail http://localhost:12345/health || exit 1
